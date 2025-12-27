@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-Global="*res://scenes/house/global_variables.gd"
+Global="*res://scenes/house/difficulties/difficulty_constants.gd"
 
 [display]
 
@@ -45,6 +45,10 @@ folder_colors={
 "res://scripts/": "blue",
 "res://ui/": "blue"
 }
+
+[global_group]
+
+GameManager="Keeps track of the game. Currently stays on the House node."
 
 [gui]
 

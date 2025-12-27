@@ -1,15 +1,18 @@
 extends Node2D
 
 
+@onready var gm: GameManager = GameManager.get_instance()
+
+
 func _process(delta: float) -> void:
-	Global.oven_current_heat -= delta * Global.oven_cooling_speed
-	if Global.oven_current_heat <= 0:
-		# Global.lose()
+	gm.heat -= delta * gm.config.oven_cooling_speed
+	if gm.heat <= 0:
+		# gm.lose()
 		pass
-	print(Global.oven_current_heat)
+	print(gm.heat)
 
 
 func _on_oven_pressed() -> void:
-	if Global.player_has_log:
-		Global.player_has_log = false
-		Global.oven_current_heat = min(Global.oven_heating_per_log + Global.oven_current_heat, Global.oven_max_heat)
+	if gm.has_log:
+		gm.has_log = false
+		gm.heat = min(gm.heat + gm.config.oven_heating_per_log, Global.oven_max_heat)

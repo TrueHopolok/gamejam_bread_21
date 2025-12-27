@@ -1,4 +1,7 @@
+class_name Wordle
 extends Node2D
+
+var is_locked: bool = false
 
 @onready var letter_1: Button = $HBoxContainer/Letter1
 @onready var letter_2: Button = $HBoxContainer/Letter2
@@ -35,10 +38,10 @@ var words = [
 var box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
 var answer: String
 
-func _ready() -> void:
-	generate_new_word()
 
 func generate_new_word() -> void:
+	is_locked = true
+	
 	var rng: int = randi() % len(words)
 	answer = words[rng][0]
 	var unique_index: int = words[rng][1]
@@ -84,23 +87,26 @@ func generate_new_word() -> void:
 
 func validate() -> void:
 	if box[0][0][box[0][1]]+box[1][0][box[1][1]]+box[2][0][box[2][1]]+box[3][0][box[3][1]] == answer:
-		print("CORRECT")
-	
+		is_locked = false
+
 
 func _on_letter_1_pressed() -> void:
 	box[0][1] = (box[0][1] + 1)  % len(box[0][0])
 	letter_1.text = box[0][0][box[0][1]]
 	validate()
-	
+
+
 func _on_letter_2_pressed() -> void:
 	box[1][1] = (box[1][1] + 1)  % len(box[1][0])
 	letter_2.text = box[1][0][box[1][1]]
 	validate()
-	
+
+
 func _on_letter_3_pressed() -> void:
 	box[2][1] = (box[2][1] + 1)  % len(box[2][0])
 	letter_3.text = box[2][0][box[2][1]]
 	validate()
+
 
 func _on_letter_4_pressed() -> void:
 	box[3][1] = (box[3][1] + 1)  % len(box[3][0])
