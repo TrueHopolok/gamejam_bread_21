@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamejam_bread_21"
-run/main_scene="uid://cetrultfogrt8"
+run/main_scene="uid://cx8665g68amn5"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://cu3wdat0ouma0"
 
@@ -21,7 +21,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-GlobalVariables="*res://global_variables.gd"
+Global="*res://scenes/house/global_variables.gd"
 
 [display]
 
