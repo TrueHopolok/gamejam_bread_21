@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://di6ecsgcyv5nr"]
 
 [ext_resource type="Script" uid="uid://bsqwlg5vc44us" path="res://scenes/house/room_switch.gd" id="1_tpj5w"]
-[ext_resource type="PackedScene" uid="uid://bevslg0d78r02" path="res://objects/log/Log.tscn" id="2_vekno"]
+[ext_resource type="PackedScene" uid="uid://bevslg0d78r02" path="res://objects/log/log.tscn" id="2_vekno"]
 
 [node name="LeftRoom" type="Node2D"]
 script = ExtResource("1_tpj5w")

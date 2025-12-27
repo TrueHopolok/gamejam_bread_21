@@ -46,6 +46,10 @@ folder_colors={
 "res://ui/": "blue"
 }
 
+[global_group]
+
+GameManager="Keeps track of the game. Currently stays on the House node."
+
 [gui]
 
 theme/custom="uid://b8ecc687tvf12"

@@ -1,5 +1,8 @@
 extends Node2D
 
 
+@onready var gm: GameManager = GameManager.get_instance()
+
+
 func _on_button_pressed() -> void:
-	Global.player_has_log = true
+	gm.has_log = true
