@@ -1,6 +1,5 @@
 extends Node2D
 
 
-
 func _on_button_pressed() -> void:
-	GlobalVariables.has_log = true
+	Global.player_has_log = true
