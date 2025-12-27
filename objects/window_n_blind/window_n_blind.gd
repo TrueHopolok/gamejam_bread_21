@@ -16,22 +16,27 @@ Animations / images todo:
 
 
 @onready var gm: GameManager = GameManager.get_instance()
+@onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var _attack_timer: Timer 	= $AttackTimer
 @onready var _rest_timer: Timer 	= $RestTimer
 var _attacking: bool = false
 
 
 func _ready() -> void:
-	$StartTimer.start(gm.config.window_start_time)
+	if gmconfig.window_start_hour == 0:
+		_on_start_end(0)
+	else:
+		get_tree().get_first_node_in_group("NightTimer").hour_passed.connect(_on_start_end)
 
 
-func _on_start_end() -> void:
-	_rest_timer.start(randf_range(gm.config.window_min_rest_time, gm.config.window_max_rest_time))
+func _on_start_end(hour: int) -> void:
+	if hour == gmconfig.window_start_hour:
+		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
 
 
 func _on_rest_end() -> void:
 	_attacking = true
-	_attack_timer.start(gm.config.window_attack_time)
+	_attack_timer.start(gmconfig.window_attack_time)
 	print("WINDOW: spawn")
 
 
@@ -39,7 +44,7 @@ func _on_attack_end() -> void:
 	if _attacking:
 		gm.lose()
 	else:
-		_rest_timer.start(randf_range(gm.config.window_min_rest_time, gm.config.window_max_rest_time))
+		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
 
 
 func _on_blind_press() -> void:

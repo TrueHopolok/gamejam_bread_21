@@ -12,4 +12,5 @@ wordle = NodePath("Wordle")
 position = Vector2(256, 128)
 
 [node name="Wordle" parent="." instance=ExtResource("3_xfbbw")]
+unique_name_in_owner = true
 position = Vector2(214, 256)

@@ -12,6 +12,7 @@ Animations / images todo:
 	- Dice with letters (make it godot theme)
 '''
 
+@onready var gmconfig: DifficultyConfig = GameManager.get_config()
 
 var is_locked: bool = false
 
@@ -50,6 +51,17 @@ var _words = [
 ]
 var _box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
 var _answer: String
+var _chance: float = 0.0
+
+
+func _ready() -> void:
+	_update_wordle(0)
+	get_tree().get_first_node_in_group("NightTimer").hour_passed.connect(_update_wordle)
+
+
+func _update_wordle(hour: int) -> void:
+	if gmconfig.wordle_chance.has(hour):
+		_chance = gmconfig.wordle_chance[hour]
 
 
 func _activate() -> void:
@@ -57,14 +69,19 @@ func _activate() -> void:
 	_letter_2.disabled = false
 	_letter_3.disabled = false
 	_letter_4.disabled = false
-	
+
+
 func _deactivate() -> void:
 	_letter_1.disabled = true
 	_letter_2.disabled = true
 	_letter_3.disabled = true
 	_letter_4.disabled = true
 
+
 func generate_new_word() -> void:
+	if is_locked: return
+	if _chance < randf(): return
+	
 	is_locked = true
 	
 	var rng: int = randi() % len(_words)

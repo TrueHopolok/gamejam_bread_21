@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c51bhyol546hh" path="res://objects/oven/oven.gd" id="1_fak8e"]
 
-[node name="Oven" type="Node2D"]
+[node name="Oven" type="Node2D" groups=["Oven"]]
 script = ExtResource("1_fak8e")
 
 [node name="Oven" type="Button" parent="."]

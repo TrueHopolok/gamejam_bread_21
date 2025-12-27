@@ -4,16 +4,13 @@ extends Node2D
 ## Difficulty of the game can be changed here.
 @export var config: DifficultyConfig
 
-## Here are variables that are stored as state of the game.
-## They have starting values.
-
-var heat: float = 100.0
-var has_log: bool = false
-var wordle_chance: float = 1
-
 
 static func get_instance() -> GameManager:
 	return Engine.get_main_loop().get_first_node_in_group("GameManager")
+
+
+static func get_config() -> DifficultyConfig:
+	return Engine.get_main_loop().get_first_node_in_group("GameManager").config
 
 
 func win() -> void:

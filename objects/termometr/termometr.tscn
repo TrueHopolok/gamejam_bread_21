@@ -5,7 +5,8 @@
 [node name="Termometr" type="ProgressBar"]
 offset_right = 64.0
 offset_bottom = 64.0
-step = 1.0
+step = 1.25
+value = 50.0
 fill_mode = 3
 script = ExtResource("1_loims")
 

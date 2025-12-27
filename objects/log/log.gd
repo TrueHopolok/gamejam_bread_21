@@ -1,8 +1,8 @@
+class_name Log
 extends Node2D
 
 
-@onready var gm: GameManager = GameManager.get_instance()
-
+var has_log = false
 
 func _on_button_pressed() -> void:
-	gm.has_log = true
+	has_log = true
