@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://di6ecsgcyv5nr"]
+
+[ext_resource type="Script" uid="uid://bsqwlg5vc44us" path="res://scenes/house/room_switch.gd" id="1_tpj5w"]
+
+[node name="LeftRoom" type="Node2D"]
+script = ExtResource("1_tpj5w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(1, 0, 0, 1)

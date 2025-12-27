@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cx8665g68amn5"]
+
+[ext_resource type="PackedScene" uid="uid://di6ecsgcyv5nr" path="res://scenes/house/left/left_room.tscn" id="1_44bws"]
+[ext_resource type="Script" uid="uid://doku3524rkflj" path="res://scenes/house/house.gd" id="1_wusmn"]
+[ext_resource type="PackedScene" uid="uid://k3ecea1f6h5y" path="res://scenes/house/middle/middle_room.tscn" id="3_guua2"]
+[ext_resource type="PackedScene" uid="uid://c461lf2k0smg3" path="res://scenes/house/right/right_room.tscn" id="4_cr554"]
+
+[node name="House" type="Node2D"]
+script = ExtResource("1_wusmn")
+
+[node name="LeftRoom" parent="." node_paths=PackedStringArray("room_to_the_right") instance=ExtResource("1_44bws")]
+visible = false
+room_to_the_right = NodePath("../MiddleRoom")
+
+[node name="MiddleRoom" parent="." node_paths=PackedStringArray("room_to_the_left", "room_to_the_right") instance=ExtResource("3_guua2")]
+visible = false
+room_to_the_left = NodePath("../LeftRoom")
+room_to_the_right = NodePath("../RightRoom")
+
+[node name="RightRoom" parent="." node_paths=PackedStringArray("room_to_the_left") instance=ExtResource("4_cr554")]
+visible = false
+room_to_the_left = NodePath("../MiddleRoom")
+
+[node name="TransitionRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0)
