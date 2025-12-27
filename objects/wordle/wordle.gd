@@ -52,7 +52,20 @@ var _box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
 var _answer: String
 
 
+func _activate() -> void:
+	_letter_1.disabled = false
+	_letter_2.disabled = false
+	_letter_3.disabled = false
+	_letter_4.disabled = false
+	
+func _deactivate() -> void:
+	_letter_1.disabled = true
+	_letter_2.disabled = true
+	_letter_3.disabled = true
+	_letter_4.disabled = true
+
 func generate_new_word() -> void:
+	_activate()
 	is_locked = true
 	
 	var rng: int = randi() % len(_words)
@@ -102,27 +115,28 @@ func generate_new_word() -> void:
 func validate() -> void:
 	if _box[0][0][_box[0][1]]+_box[1][0][_box[1][1]]+_box[2][0][_box[2][1]]+_box[3][0][_box[3][1]] == _answer:
 		is_locked = false
+		_deactivate()
 
 
-func _on__letter_1_pressed() -> void:
+func _on_letter_1_pressed() -> void:
 	_box[0][1] = (_box[0][1] + 1)  % len(_box[0][0])
 	_letter_1.text = _box[0][0][_box[0][1]]
 	validate()
 
 
-func _on__letter_2_pressed() -> void:
+func _on_letter_2_pressed() -> void:
 	_box[1][1] = (_box[1][1] + 1)  % len(_box[1][0])
 	_letter_2.text = _box[1][0][_box[1][1]]
 	validate()
 
 
-func _on__letter_3_pressed() -> void:
+func _on_letter_3_pressed() -> void:
 	_box[2][1] = (_box[2][1] + 1)  % len(_box[2][0])
 	_letter_3.text = _box[2][0][_box[2][1]]
 	validate()
 
 
-func _on__letter_4_pressed() -> void:
+func _on_letter_4_pressed() -> void:
 	_box[3][1] = (_box[3][1] + 1)  % len(_box[3][0])
 	_letter_4.text = _box[3][0][_box[3][1]]
 	validate()

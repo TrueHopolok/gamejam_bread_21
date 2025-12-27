@@ -10,6 +10,7 @@ extends Node2D
 @onready var MAX_VALUE: float = config.MAX_VALUE 
 @onready var WINDUP_MULTIPLIER = config.WINDUP_MULTIPLIER
 @onready var timer_value: float = config.DEFAULT_TIMER_VALUE
+
 const MIN_SPEED: float = 0.05
 const MIN_VOLUME: float = 0.25      
 var is_held: bool = false
