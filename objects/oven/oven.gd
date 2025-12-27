@@ -1,6 +1,17 @@
 extends Node2D
 
 
+'''
+SFX todo:
+	- Ambient fire cracking (depending on amount of fuel)
+
+Animations / images:
+	- Glow (depending on amount of fuel)
+	- Oven itself
+	- Fire inside
+'''
+
+
 @onready var gm: GameManager = GameManager.get_instance()
 
 

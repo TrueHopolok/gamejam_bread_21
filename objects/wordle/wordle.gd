@@ -1,6 +1,18 @@
 class_name Wordle
 extends Node2D
 
+
+'''
+SFX todo:
+	- Switch dice
+	- Spawn
+	- New threat
+
+Animations / images todo:
+	- Dice with letters (make it godot theme)
+'''
+
+
 var is_locked: bool = false
 
 @onready var letter_1: Button = $HBoxContainer/Letter1

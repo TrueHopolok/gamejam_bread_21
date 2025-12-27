@@ -1,15 +1,28 @@
 extends Node2D
 
 
+'''
+SFX todo:
+	- Added for the night
+	- Spawn on window
+	- Close curtain
+	- DEATH?
+
+Animations / images todo:
+	- Window
+	- Curtain
+	- Eyes in the window
+'''
+
+
 @onready var gm: GameManager = GameManager.get_instance()
-@onready var _start_timer: Timer 	= $StartTimer
 @onready var _attack_timer: Timer 	= $AttackTimer
 @onready var _rest_timer: Timer 	= $RestTimer
 var _attacking: bool = false
 
 
 func _ready() -> void:
-	_start_timer.start(gm.config.window_start_time)
+	$StartTimer.start(gm.config.window_start_time)
 
 
 func _on_start_end() -> void:
@@ -17,9 +30,9 @@ func _on_start_end() -> void:
 
 
 func _on_rest_end() -> void:
-	#print("attacking")
 	_attacking = true
 	_attack_timer.start(gm.config.window_attack_time)
+	print("WINDOW: spawn")
 
 
 func _on_attack_end() -> void:

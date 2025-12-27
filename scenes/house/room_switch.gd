@@ -1,6 +1,13 @@
 class_name Room
 extends Node2D
 
+
+'''
+SFX todo:
+	- moving through
+'''
+
+
 @export var room_to_the_left: Room
 @export var room_to_the_right: Room
 @export var wordle: Wordle

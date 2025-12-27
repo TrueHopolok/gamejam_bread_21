@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dko2b2ekk2r0r"]
+
+[ext_resource type="Script" uid="uid://byajk20fj3x7v" path="res://objects/night_timer/night_timer.gd" id="1_m3let"]
+
+[node name="NightTimer" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m3let")
+
+[node name="HourTimer" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="HourLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 24
+text = "12 AM"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="HourTimer" to="." method="_hour_passed"]
