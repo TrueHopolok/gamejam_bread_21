@@ -51,7 +51,20 @@ var box: Array = [["HEGR", 0], ["EGR", 0], ["LPO", 0], ["POG", 0]]
 var answer: String
 
 
+func _activate() -> void:
+	letter_1.disabled = false
+	letter_2.disabled = false
+	letter_3.disabled = false
+	letter_4.disabled = false
+	
+func _deactivate() -> void:
+	letter_1.disabled = true
+	letter_2.disabled = true
+	letter_3.disabled = true
+	letter_4.disabled = true
+
 func generate_new_word() -> void:
+	_activate()
 	is_locked = true
 	
 	var rng: int = randi() % len(words)
@@ -100,6 +113,7 @@ func generate_new_word() -> void:
 func validate() -> void:
 	if box[0][0][box[0][1]]+box[1][0][box[1][1]]+box[2][0][box[2][1]]+box[3][0][box[3][1]] == answer:
 		is_locked = false
+		_deactivate()
 
 
 func _on_letter_1_pressed() -> void:

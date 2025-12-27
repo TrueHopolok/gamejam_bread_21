@@ -12,21 +12,25 @@ offset_bottom = 40.0
 [node name="Letter1" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+disabled = true
 text = "H"
 
 [node name="Letter2" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+disabled = true
 text = "E"
 
 [node name="Letter3" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+disabled = true
 text = "L"
 
 [node name="Letter4" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+disabled = true
 text = "P"
 
 [connection signal="pressed" from="HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
