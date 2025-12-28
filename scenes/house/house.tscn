@@ -17,18 +17,15 @@ metadata/_edit_lock_ = true
 [node name="LeftRoom" parent="." node_paths=PackedStringArray("room_to_the_right") instance=ExtResource("1_44bws")]
 visible = false
 room_to_the_right = NodePath("../MiddleRoom")
-metadata/_edit_lock_ = true
 
 [node name="MiddleRoom" parent="." node_paths=PackedStringArray("room_to_the_left", "room_to_the_right") instance=ExtResource("3_guua2")]
 visible = false
 room_to_the_left = NodePath("../LeftRoom")
 room_to_the_right = NodePath("../RightRoom")
-metadata/_edit_lock_ = true
 
 [node name="RightRoom" parent="." node_paths=PackedStringArray("room_to_the_left") instance=ExtResource("4_cr554")]
 visible = false
 room_to_the_left = NodePath("../MiddleRoom")
-metadata/_edit_lock_ = true
 
 [node name="TransitionRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -41,11 +38,13 @@ metadata/_edit_lock_ = true
 [node name="NightTimer" parent="." instance=ExtResource("6_guua2")]
 
 [node name="Termometr" parent="." instance=ExtResource("7_cr554")]
-offset_top = 296.0
-offset_bottom = 360.0
+offset_left = 8.0
+offset_top = 264.0
+offset_right = 40.0
+offset_bottom = 344.0
 
 [node name="Inventory" parent="." instance=ExtResource("8_yj2u4")]
-offset_left = 560.0
+offset_left = 232.0
 offset_top = 328.0
-offset_right = 560.0
+offset_right = 232.0
 offset_bottom = 328.0
