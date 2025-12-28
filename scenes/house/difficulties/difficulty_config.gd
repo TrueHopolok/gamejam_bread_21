@@ -21,9 +21,9 @@ extends Resource
 ## Maximum units amount in the oven is 120 and starting is 100.
 @export_group("Oven")
 ## How fast oven cool down in units/second. More info in group's doc.
-@export_range(0.0, 10.0, 0.05) var oven_cooling_speed: float = 2.0
+@export_range(0.0, 10.0, 0.05) var oven_cooling_speed: float = 1.5
 ## How much 1 log restores units of warmth. More info in group's doc.
-@export_range(0.0, 100.0, 1.0) var oven_heating_per_log: float = 80.0
+@export_range(0.0, 100.0, 1.0) var oven_heating_per_log: float = 75.0
 ## Max amount of heat oven can handle / player can charge up to.
 ## UI value can go up to the 100 units.
 @export_range(0.0, 120.0, 5.0) var oven_max_heat: float = 120.0
@@ -37,6 +37,8 @@ extends Resource
 ## Stores chance for wordle to appear on each hour.
 ## If 0 is not present, chance is set to 0.
 @export var wordle_chance: Dictionary = {
+	0: 0.0,
+	1: 0.0,
 	2: 0.1,
 	3: 0.3,
 	4: 0.4,
@@ -49,13 +51,13 @@ extends Resource
 
 @export_subgroup("Winding")
 ## Units/sec how fast music box is WIND.
-@export_range(0.0, 20.0, 0.1) var musicbox_wind_speed: float = 5.0
+@export_range(0.0, 20.0, 0.1) var musicbox_wind_speed: float = 10.0
 ## Units/sec how fast music box is UNWIND.
 @export_range(0.0, 10.0, 0.1) var musicbox_unwind_speed: float = 1.0
 ## Starting value of the music box.
 @export_range(0.0, 150.0, 0.5) var musicbox_starting_value: float = 70.0
 
-@export_subgroup("Threshold")
+@export_subgroup("Thresholds")
 @export_range(0.0, 150.0, 0.5) var musicbox_slowing_threshold: float = 25.0
 ## Units till music box is silent. Gameover may be caused now, but it is gurantee at 0.
 @export_range(0.0, 150.0, 0.5) var musicbox_silent_threshold: float = 5.0

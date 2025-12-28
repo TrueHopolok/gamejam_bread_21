@@ -47,7 +47,6 @@ folder_colors={
 GameManager="Keeps track of the game. Currently stays on the House node."
 NightTimer=""
 Oven=""
-Log=""
 
 [gui]
 

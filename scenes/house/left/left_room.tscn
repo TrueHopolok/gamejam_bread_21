@@ -10,4 +10,31 @@ script = ExtResource("1_tpj5w")
 [node name="Log" parent="." instance=ExtResource("2_vekno")]
 position = Vector2(256, 128)
 
+[node name="Log2" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log3" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log4" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log5" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log6" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log7" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log8" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log9" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
+[node name="Log10" parent="." instance=ExtResource("2_vekno")]
+position = Vector2(256, 128)
+
 [node name="WindowNBlind" parent="." instance=ExtResource("3_ojayl")]
