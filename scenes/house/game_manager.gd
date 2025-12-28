@@ -24,7 +24,8 @@ func win() -> void:
 	get_tree().change_scene_to_file("res://ui/win_screen/win_screen.tscn")
 
 
-func lose() -> void:
+func lose(reason : String) -> void:
+	Global.death_reason = reason
 	get_tree().change_scene_to_file("res://ui/death_screen/death_screen.tscn")
 
 

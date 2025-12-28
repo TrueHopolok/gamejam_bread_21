@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		_current_value = max(_current_value - delta * gmconfig.musicbox_unwind_speed, 0.0)
 
 	if _current_value <= 0.0:
-		gm.lose()
+		gm.lose("Music box unwound, hold cursor on the music box to wind it")
 	elif _current_value <= gmconfig.musicbox_silent_threshold:
 		#if _current_value / gmconfig.musicbox_silent_threshold < randf():
 			#gm.lose()

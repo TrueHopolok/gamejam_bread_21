@@ -59,7 +59,7 @@ func _on_rest_end() -> void:
 
 func _on_attack_end() -> void:
 	if _attacking:
-		gm.lose()
+		gm.lose("Don't forget to close the blinds when there is a creepy guy in the window")
 	else:
 		bonk.play(0)
 		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
