@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://2c7o16jntr3o"]
+[gd_scene load_steps=9 format=3 uid="uid://2c7o16jntr3o"]
 
 [ext_resource type="ButtonGroup" uid="uid://dg5wecnyarym2" path="res://objects/double_doors/doors_group.tres" id="1_3am3k"]
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="4_hfyjo"]
 [ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="5_kk4o1"]
 [ext_resource type="AudioStream" uid="uid://xh164g1qai3b" path="res://audio/sfx/bonk.wav" id="6_lx3f4"]
+[ext_resource type="AudioStream" uid="uid://5r3lur0yrb0i" path="res://audio/sfx/close_door.mp3" id="8_pw8cc"]
 
 [node name="DoubleDoors" type="Node2D"]
 script = ExtResource("1_pinfa")
@@ -64,6 +65,12 @@ text = "close correct door if you hear footsteps"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("5_kk4o1")
+
+[node name="Close" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(320, 192)
+stream = ExtResource("8_pw8cc")
+panning_strength = 0.5
+bus = &"SFX"
 
 [connection signal="pressed" from="LeftDoor" to="." method="_on_left_door_pressed"]
 [connection signal="pressed" from="RightDoor" to="." method="_on_right_door_pressed"]
