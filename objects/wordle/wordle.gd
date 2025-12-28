@@ -27,6 +27,7 @@ var is_locked: bool = false
 @onready var _word: Label = $VBoxContainer/Word
 @onready var click: AudioStreamPlayer2D = $click
 @onready var start: AudioStreamPlayer2D = $start
+@onready var solve: SpatialAudioSource = $solve
 
 const _alphabet := [
 	"A","B","C","D","E","F","G","H","I","J","K","L","M",
@@ -141,6 +142,7 @@ func generate_new_word() -> void:
 func validate() -> void:
 	if _box[0][0][_box[0][1]]+_box[1][0][_box[1][1]]+_box[2][0][_box[2][1]]+_box[3][0][_box[3][1]] == _answer:
 		is_locked = false
+		solve.play(0)
 		_deactivate()
 
 

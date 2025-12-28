@@ -1,6 +1,7 @@
 extends Node2D
 
 
+@onready var windup: AudioStreamPlayer2D = $windup
 @onready var mbusindex: int = AudioServer.get_bus_index("MusicBox")
 @onready var music: AudioStreamPlayer2D = $MusicBox_Audio
 @onready var button: Button = $Button
@@ -39,7 +40,8 @@ func _process(delta: float) -> void:
 
 func _on_button_mouse_entered() -> void:
 	_is_held = true
-
+	windup.play(0)
 
 func _on_button_mouse_exited() -> void:
 	_is_held = false
+	windup.stop()

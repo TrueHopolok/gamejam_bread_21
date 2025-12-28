@@ -56,6 +56,10 @@ offset_right = 384.0
 offset_bottom = 320.0
 text = "SMASH ME"
 
+[node name="windup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aosx5")
+volume_db = -10.713
+
 [connection signal="button_down" from="Button" to="." method="_on_wind_start"]
 [connection signal="button_up" from="Button" to="." method="_on_wind_stop"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]

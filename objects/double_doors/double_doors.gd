@@ -13,7 +13,7 @@ Animations / images todo:
 	- Open/close door
 	- DEATH?
 '''
-
+@onready var bonk: AudioStreamPlayer2D = $bonk
 @onready var steps: AudioStreamPlayer2D = $Steps
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
@@ -57,6 +57,7 @@ func _on_attack_end() -> void:
 	else:
 		gm.lose()
 	steps.stop()
+	bonk.play(0)
 
 
 func _on_left_door_pressed() -> void:

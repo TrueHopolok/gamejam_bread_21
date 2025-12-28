@@ -13,7 +13,8 @@ Animations / images todo:
 	- Curtain
 	- Eyes in the window
 '''
-
+@onready var blinds: SpatialAudioSource = $blinds
+@onready var bonk: SpatialAudioSource = $bonk
 @onready var knock: AudioStreamPlayer2D = $Knock
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
@@ -34,6 +35,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if _blind.button_pressed:
 		_sprite.play("closed")
+		
 		if _attacking:
 			_attack_timer.stop()
 			_attacking = false
@@ -60,4 +62,9 @@ func _on_attack_end() -> void:
 	if _attacking:
 		gm.lose()
 	else:
+		bonk.play(0)
 		_rest_timer.start(randf_range(gmconfig.window_min_rest_time, gmconfig.window_max_rest_time))
+
+
+func _on_blind_button_button_down() -> void:
+	blinds.play(0)
