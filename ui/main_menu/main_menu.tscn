@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj33qfj6ey3l4"]
+[gd_scene load_steps=3 format=3 uid="uid://bj33qfj6ey3l4"]
 
 [ext_resource type="Script" uid="uid://bj40v4sosvwy8" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
+[ext_resource type="Texture2D" uid="uid://sufnpbljdhr5" path="res://assets/main_art/bbbb.png" id="2_mu8pm"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,12 +12,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uhj5c")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("2_mu8pm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 344.0
+offset_right = 630.0
+offset_bottom = 358.0
+text = "Press 'esc' to exit to main menu at any point."
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_top = 19.0
-offset_right = 664.0
-offset_bottom = 379.0
+offset_left = 48.0
+offset_top = 192.0
+offset_right = 248.0
+offset_bottom = 328.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
 layout_mode = 2

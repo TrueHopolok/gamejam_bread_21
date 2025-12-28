@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://dlptv1a5o3dwc"]
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://dlptv1a5o3dwc"]
 
 [sub_resource type="AudioEffectPanner" id="AudioEffectPanner_73ea7"]
 resource_name = "Panner"
@@ -13,14 +13,6 @@ resource_name = "Delay"
 
 [sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_73ea7"]
 resource_name = "Distortion"
-
-[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_sj8iw"]
-resource_name = "Reverb"
-room_size = 0.2
-damping = 0.2
-spread = 0.0
-dry = 0.2
-wet = 0.2
 
 [resource]
 bus/1/name = &"Music"
@@ -67,5 +59,3 @@ bus/6/effect/0/effect = SubResource("AudioEffectDelay_73ea7")
 bus/6/effect/0/enabled = true
 bus/6/effect/1/effect = SubResource("AudioEffectDistortion_73ea7")
 bus/6/effect/1/enabled = true
-bus/6/effect/2/effect = SubResource("AudioEffectReverb_sj8iw")
-bus/6/effect/2/enabled = true
