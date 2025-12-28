@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://benyjuon1ddpd" path="res://objects/double_doors/double_doors.gd" id="1_pinfa"]
 [ext_resource type="Texture2D" uid="uid://jtvohulrxdwc" path="res://assets/house/DoubleDoors/DoubleDoors.png" id="2_mhvgt"]
 [ext_resource type="AudioStream" uid="uid://lh7phqjlef5u" path="res://audio/sfx/Steps.mp3" id="3_mhvgt"]
-[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="5_kk4o1"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="4_hfyjo"]
+[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="5_kk4o1"]
 [ext_resource type="AudioStream" uid="uid://xh164g1qai3b" path="res://audio/sfx/bonk.wav" id="6_lx3f4"]
 
 [node name="DoubleDoors" type="Node2D"]
@@ -15,6 +15,7 @@ script = ExtResource("1_pinfa")
 position = Vector2(320, 180)
 scale = Vector2(2, 2.25)
 texture = ExtResource("2_mhvgt")
+flip_h = true
 
 [node name="LeftDoor" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -23,7 +24,6 @@ offset_top = 64.0
 offset_right = 176.0
 offset_bottom = 296.0
 toggle_mode = true
-button_pressed = true
 button_group = ExtResource("1_3am3k")
 text = "Left"
 
@@ -34,6 +34,7 @@ offset_top = 64.0
 offset_right = 584.0
 offset_bottom = 296.0
 toggle_mode = true
+button_pressed = true
 button_group = ExtResource("1_3am3k")
 text = "Right"
 
@@ -50,6 +51,7 @@ script = ExtResource("4_hfyjo")
 
 [node name="Bonk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_lx3f4")
+volume_db = 6.0
 bus = &"SFX_PAN_MAN"
 script = ExtResource("4_hfyjo")
 
