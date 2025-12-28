@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy0ylgn52iyv8"]
+[gd_scene load_steps=10 format=3 uid="uid://cy0ylgn52iyv8"]
 
 [ext_resource type="Script" uid="uid://q48nbrxc7h7l" path="res://objects/wordle/wordle.gd" id="1_aa0vr"]
 [ext_resource type="AudioStream" uid="uid://dputkmr54iu8w" path="res://audio/sfx/worlde_start.wav" id="2_qwbuv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bg7071o7pdgkx" path="res://assets/house/Wordle/w_enabled.png" id="3_ipyam"]
 [ext_resource type="AudioStream" uid="uid://dg55jeuep2eta" path="res://audio/sfx/worlde_click.wav" id="3_xgqnq"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="5_ipyam"]
+[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="6_ipyam"]
 [ext_resource type="AudioStream" uid="uid://ooxe621p1dbl" path="res://audio/sfx/applause.wav" id="7_cu5sy"]
 
 [sub_resource type="Theme" id="Theme_vhcca"]
@@ -21,7 +22,6 @@ offset_bottom = 40.0
 [node name="Word" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "HELP"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -128,6 +128,20 @@ stream = ExtResource("7_cu5sy")
 bus = &"SFX"
 script = ExtResource("5_ipyam")
 pos = 3
+
+[node name="WordleHint" type="Label" parent="."]
+offset_left = -45.0
+offset_top = -71.0
+offset_right = 254.0
+offset_bottom = -6.0
+text = "Word appears on top of cubes.
+You need to click on them in order to recreate that word.
+
+You cannot leave this screen until shown word is recreated."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+script = ExtResource("6_ipyam")
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter1" to="." method="_on_letter_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Letter2" to="." method="_on_letter_2_pressed"]
