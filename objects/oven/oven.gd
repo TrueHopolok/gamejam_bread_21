@@ -58,7 +58,7 @@ func _process(delta: float) -> void:
 
 	heat = clampf(heat + _temp_diff * delta, 0.0, gmconfig.oven_max_heat)
 	if heat <= 0:
-		gm.lose()
+		gm.lose("Don't forget to put logs into the oven, and watch for temps on bottom left")
 	_particles.emitting = heat > gmconfig.oven_max_heat / 2
 	if _temp_diff > -gmconfig.oven_cooling_speed:
 		_temp_diff = clampf(_temp_diff - gmconfig.oven_cooling_speed * delta, -gmconfig.oven_cooling_speed, _heating)

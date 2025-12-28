@@ -57,7 +57,7 @@ func _on_attack_end() -> void:
 		_rest_timer.start(randf_range(gmconfig.doors_min_rest_time, gmconfig.doors_max_rest_time))
 		bonk.play(0)
 	else:
-		gm.lose()
+		gm.lose("Listen to which door the baby walks and close the corresponding door")
 	steps.stop()
 
 

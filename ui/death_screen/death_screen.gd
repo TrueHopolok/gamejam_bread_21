@@ -1,6 +1,11 @@
 extends Control
 
 const HOUSE = "res://scenes/house/house.tscn"
+@onready var reason: Label = $CenterContainer/VBoxContainer/Reason
+
+
+func _ready() -> void:
+	reason.text = Global.death_reason
 
 func _on_try_again_button_pressed() -> void:
 	var pk := preload(HOUSE)
