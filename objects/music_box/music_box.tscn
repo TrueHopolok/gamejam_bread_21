@@ -54,6 +54,7 @@ script = ExtResource("3_nnujl")
 [node name="windup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_073jb")
 volume_db = -10.0
+bus = &"SFX"
 script = ExtResource("3_nnujl")
 
 [node name="Button" type="Button" parent="."]
