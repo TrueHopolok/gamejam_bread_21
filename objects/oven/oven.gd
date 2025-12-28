@@ -16,6 +16,7 @@ const NO_LOG_HINT = "try to find a log to throw into it"
 const HAS_LOG_HINT = "you can throw log into it"
 
 @onready var _oven_hint: Label = $OvenHint
+@onready var _throw_sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var gm: GameManager = GameManager.get_instance()
 @onready var gmconfig: DifficultyConfig = GameManager.get_config()
 @onready var heat: float = gmconfig.oven_starting_heat
@@ -67,3 +68,4 @@ func _on_oven_pressed() -> void:
 	if has_log:
 		has_log = false
 		_temp_diff = _heating
+		_throw_sfx.play()
