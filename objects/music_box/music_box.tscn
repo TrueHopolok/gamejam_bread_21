@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjjnjovlm75xk"]
+[gd_scene load_steps=5 format=3 uid="uid://bjjnjovlm75xk"]
 
 [ext_resource type="Script" uid="uid://bg0vvce8ceg2r" path="res://objects/music_box/music_box.gd" id="1_qhv3d"]
 [ext_resource type="AudioStream" uid="uid://cishrg4y2acrf" path="res://audio/music/music_box_loop.wav" id="2_qhv3d"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="3_nnujl"]
+[ext_resource type="AudioStream" uid="uid://vfgx7hpju781" path="res://audio/music/rewind.wav" id="4_aosx5"]
 
 [node name="MusicBox" type="Node2D"]
 script = ExtResource("1_qhv3d")
@@ -16,6 +17,10 @@ script = ExtResource("3_nnujl")
 offset_right = 64.0
 offset_bottom = 64.0
 text = "SMASH ME"
+
+[node name="windup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aosx5")
+volume_db = -10.713
 
 [connection signal="button_down" from="Button" to="." method="_on_wind_start"]
 [connection signal="button_up" from="Button" to="." method="_on_wind_stop"]
