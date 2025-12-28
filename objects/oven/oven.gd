@@ -21,6 +21,9 @@ Animations / images:
 var has_log: bool = false
 var _heating: float
 
+@onready var _button: Button = $ThrowLogsButton
+@onready var _sprite: AnimatedSprite2D = $Sprite2D
+
 
 ## This formula arose from Physics movement equations
 ## [DO NOT TOUCH]
@@ -33,6 +36,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	_sprite.play("hovered" if _button.is_hovered() else "idle") 
+
 	# This calculates how long in hours can player last considering he has 10 logs
 	# print((gmconfig.oven_starting_heat + gmconfig.oven_heating_per_log * 10) / gmconfig.oven_cooling_speed / gmconfig.night_hour_length)
 
