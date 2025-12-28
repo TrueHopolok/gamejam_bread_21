@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cetrultfogrt8"]
+[gd_scene load_steps=9 format=3 uid="uid://cetrultfogrt8"]
 
 [ext_resource type="Script" uid="uid://c51bhyol546hh" path="res://objects/oven/oven.gd" id="1_fak8e"]
 [ext_resource type="Texture2D" uid="uid://drg4hjb7coqvp" path="res://assets/house/Oven/Oven_hovered.png" id="2_3ygx8"]
 [ext_resource type="Texture2D" uid="uid://ch8hihk5b80rh" path="res://assets/house/Oven/Oven_idle.png" id="3_86xkl"]
 [ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="4_86xkl"]
+[ext_resource type="AudioStream" uid="uid://bc1qa7j8joi2y" path="res://audio/sfx/throw_logs.mp3" id="5_eypp5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_eypp5"]
 animations = [{
@@ -89,5 +90,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_86xkl")
 metadata/_edit_lock_ = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_eypp5")
+volume_db = 18.0
+panning_strength = 0.0
 
 [connection signal="pressed" from="ThrowLogsButton" to="." method="_on_oven_pressed"]
