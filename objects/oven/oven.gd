@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 	_sprite.play("hovered" if _button.is_hovered() else "idle")
 
 	# This calculates how long in hours can player last considering he has 10 logs
-	# print((gmconfig.oven_starting_heat + gmconfig.oven_heating_per_log * 10) / gmconfig.oven_cooling_speed / gmconfig.night_hour_length)
+	#print((gmconfig.oven_starting_heat + gmconfig.oven_heating_per_log * 10) / gmconfig.oven_cooling_speed / gmconfig.night_hour_length)
 
 	# This updates heating on config change
 	if _heat_per_log != gmconfig.oven_heating_per_log:

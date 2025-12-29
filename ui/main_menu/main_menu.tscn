@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj33qfj6ey3l4"]
+[gd_scene load_steps=5 format=3 uid="uid://bj33qfj6ey3l4"]
 
 [ext_resource type="Script" uid="uid://bj40v4sosvwy8" path="res://ui/main_menu/main_menu.gd" id="1_uhj5c"]
 [ext_resource type="Texture2D" uid="uid://sufnpbljdhr5" path="res://assets/main_art/bbbb.png" id="2_mu8pm"]
+[ext_resource type="Script" uid="uid://cocpu06gyo2pv" path="res://ui/audio_settings/audio_slider.gd" id="3_omy8q"]
+[ext_resource type="AudioStream" uid="uid://bwx6086ty3dxx" path="res://audio/ambiant/wind.mp3" id="4_i5wg5"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +18,7 @@ script = ExtResource("1_uhj5c")
 position = Vector2(320, 180)
 scale = Vector2(2, 2)
 texture = ExtResource("2_mu8pm")
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -25,69 +28,112 @@ offset_right = 630.0
 offset_bottom = 358.0
 text = "Press 'esc' to exit to main menu at any point."
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 192.0
-offset_right = 248.0
-offset_bottom = 328.0
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 416.0
+offset_bottom = 240.0
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "Santa's [color=red]Warm[/color] on [color=green]Christmas[/color] Day"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="Difficulties" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 232.0
+offset_right = 331.0
+offset_bottom = 350.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play"
-
-[node name="AudioSettings" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Audio Setting"
-
-[node name="Exit" type="Button" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "Hints"
-
-[node name="HintButton" type="CheckButton" parent="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-button_pressed = true
-
-[node name="DifficultySelector" type="AspectRatioContainer" parent="CenterContainer/HBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer/DifficultySelector"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+[node name="Label" type="Label" parent="Difficulties"]
 layout_mode = 2
 text = "Choose difficulty"
 
-[node name="Easy" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+[node name="Easy" type="Button" parent="Difficulties"]
 layout_mode = 2
 text = "Easy"
 
-[node name="Hard" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+[node name="Medium" type="Button" parent="Difficulties"]
+layout_mode = 2
+text = "Medium"
+
+[node name="Hard" type="Button" parent="Difficulties"]
 layout_mode = 2
 text = "Hard"
 
-[node name="Unfair" type="Button" parent="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2"]
+[node name="Unfair" type="Button" parent="Difficulties"]
 layout_mode = 2
 text = "Unfair"
 
-[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/AudioSettings" to="." method="_on_audio_settings_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="toggled" from="CenterContainer/HBoxContainer/VBoxContainer/HBoxContainer/HintButton" to="." method="_on_hint_button_toggled"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Hard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="CenterContainer/HBoxContainer/DifficultySelector/VBoxContainer2/Unfair" to="." method="_on_unfair_pressed"]
+[node name="AudioSettings" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 132.0
+offset_bottom = 336.0
+
+[node name="Label" type="Label" parent="AudioSettings"]
+layout_mode = 2
+text = "Audio Settings"
+
+[node name="GeneralLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "General"
+horizontal_alignment = 1
+
+[node name="GeneralSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+script = ExtResource("3_omy8q")
+bus_name = &"Master"
+
+[node name="MusicLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+horizontal_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+value = 100.0
+script = ExtResource("3_omy8q")
+bus_name = &"Music"
+
+[node name="SFXLabel" type="Label" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="SFXSlider" type="HSlider" parent="AudioSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 100.0
+ticks_on_borders = true
+script = ExtResource("3_omy8q")
+bus_name = &"SFX"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_i5wg5")
+volume_db = -20.0
+pitch_scale = 0.8
+autoplay = true
+mix_target = 1
+max_polyphony = 3
+bus = &"Wind"
+parameters/looping = true
+
+[connection signal="pressed" from="Difficulties/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Difficulties/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Difficulties/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Difficulties/Unfair" to="." method="_on_unfair_pressed"]
+[connection signal="value_changed" from="AudioSettings/GeneralSlider" to="AudioSettings/GeneralSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/MusicSlider" to="AudioSettings/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/SFXSlider" to="AudioSettings/SFXSlider" method="_on_value_changed"]

@@ -28,37 +28,32 @@ func _ready() -> void:
 
 func _set_LL() -> void:
 	pos = Opos.LL
-	global_position.x = 0.0
-	global_position.y = get_viewport().size.y
-	volume_linear = 0.4
+	global_position.x = 0
+	global_position.y = 360
 
 
 func _set_L() -> void:
 	pos = Opos.L
 	global_position.x = 0
 	global_position.y = 0
-	volume_linear = 0.7
 
 
 func _set_M() -> void:
 	pos = Opos.M
-	global_position.x = get_viewport().size.x / 2
+	global_position.x = 320
 	global_position.y = 0
-	volume_linear = 1.0
 
 
 func _set_R() -> void:
 	pos = Opos.R
-	global_position.x = get_viewport().size.x
+	global_position.x = 640
 	global_position.y = 0
-	volume_linear = 0.7
 
 
 func _set_RR() -> void:
 	pos = Opos.RR
-	global_position.x = get_viewport().size.x
-	global_position.y = get_viewport().size.y
-	volume_linear = 0.4
+	global_position.x = 640
+	global_position.y = 360
 
 
 func _on_moved_R() -> void:
