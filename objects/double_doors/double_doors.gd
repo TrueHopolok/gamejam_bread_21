@@ -65,7 +65,7 @@ func _on_left_door_pressed() -> void:
 	if !_defending_left:
 		_defending_left = true
 		_sprite.flip_h = true
-		_close_sfx.global_position.x = 0.0
+		_close_sfx.global_position.x = 0
 		_close_sfx.play()
 
 
@@ -73,5 +73,5 @@ func _on_right_door_pressed() -> void:
 	if _defending_left:
 		_defending_left = false
 		_sprite.flip_h = false
-		_close_sfx.global_position.x = get_viewport().size.x
+		_close_sfx.global_position.x = 640
 		_close_sfx.play()

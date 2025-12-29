@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var windup: SpatialAudioSource = $windup
-@onready var mbusindex: int = AudioServer.get_bus_index("MusicBox")
+@onready var mbusindex: int = AudioServer.get_bus_index(&"Music")
 @onready var music: AudioStreamPlayer2D = $MusicBox_Audio
 @onready var button: Button = $Button
 @onready var gm: GameManager = GameManager.get_instance()
