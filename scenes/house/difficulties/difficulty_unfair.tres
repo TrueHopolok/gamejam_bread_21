@@ -17,13 +17,12 @@ wordle_chance = {
 4: 1.0,
 5: 1.0
 }
-musicbox_wind_speed = 5.0
-musicbox_unwind_speed = 10.0
-musicbox_starting_value = 100.0
-musicbox_max_threshold = 100.0
+musicbox_wind_speed = 3.5
+musicbox_unwind_speed = 4.5
+musicbox_starting_value = 50.0
 window_start_hour = 0
-window_min_rest_time = 0.0
-window_max_rest_time = 0.5
+window_min_rest_time = 0.5
+window_max_rest_time = 1.0
 window_attack_time = 6.0
 doors_start_hour = 0
 doors_min_rest_time = 7.5

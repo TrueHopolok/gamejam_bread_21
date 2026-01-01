@@ -93,7 +93,7 @@ metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_eypp5")
-volume_db = 18.0
+volume_db = 20.0
 panning_strength = 0.0
 
 [connection signal="pressed" from="ThrowLogsButton" to="." method="_on_oven_pressed"]

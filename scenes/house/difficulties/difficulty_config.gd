@@ -68,11 +68,11 @@ extends Resource
 ## WindowNBlind difficulty related variables.
 @export_group("WindowNBlind")
 ## Hour at which enemy activates. Start from resting state.
-@export_range(0, 5, 1) var window_start_hour: int = 1
+@export_range(0, 6, 1) var window_start_hour: int = 1
 ## Min rest time between attacks.
-@export_range(0.0, 100.0, 0.01) var window_min_rest_time: float = 3.0
+@export_range(0.0, 100.0, 0.01) var window_min_rest_time: float = 5.0
 ## Max rest time between attacks.
-@export_range(0.0, 100.0, 0.01) var window_max_rest_time: float = 6.0
+@export_range(0.0, 100.0, 0.01) var window_max_rest_time: float = 15.0
 ## Time before kill / to defend.
 @export_range(0.0, 100.0, 0.01) var window_attack_time: float = 10.0
 
@@ -80,7 +80,7 @@ extends Resource
 ## DoubleDoors difficulty related variables.
 @export_group("DoubleDoors")
 ## Hour at which enemy activates. Start from resting state.
-@export_range(0, 5, 1) var doors_start_hour: int = 4
+@export_range(0, 6, 1) var doors_start_hour: int = 4
 ## Min rest time between attacks.
 @export_range(0.0, 100.0, 0.01) var doors_min_rest_time: float = 15.0
 ## Max rest time between attacks.

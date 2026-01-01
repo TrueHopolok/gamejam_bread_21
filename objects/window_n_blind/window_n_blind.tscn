@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c4tmp7s7lvw50" path="res://assets/house/Window/Window_closed.png" id="3_4556n"]
 [ext_resource type="AudioStream" uid="uid://vhgtnx50yixe" path="res://audio/sfx/Knock.mp3" id="5_4556n"]
 [ext_resource type="Script" uid="uid://b24b53wmb16x2" path="res://objects/spatial_audio/spatial_audio.gd" id="6_18olb"]
-[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="7_2488d"]
+[ext_resource type="Script" uid="uid://b3uumy7u8iwxj" path="res://objects/hint_label/hint_label.gd" id="6_itqem"]
 [ext_resource type="AudioStream" uid="uid://dkku2bxxngeia" path="res://audio/sfx/blinds.wav" id="7_2488d"]
 [ext_resource type="AudioStream" uid="uid://critu05rxt6b" path="res://audio/sfx/bonk_window.wav" id="8_qmn83"]
 
@@ -63,6 +63,7 @@ one_shot = true
 
 [node name="Knock" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_4556n")
+bus = &"SFX"
 
 [node name="Hint" type="Label" parent="."]
 offset_left = -120.0
@@ -73,7 +74,8 @@ text = "close curtains if you see someone peaking through
 listen for footsteps on the snow"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("7_2488d")
+script = ExtResource("6_itqem")
+metadata/_custom_type_script = "uid://b3uumy7u8iwxj"
 
 [node name="Blind" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_2488d")
