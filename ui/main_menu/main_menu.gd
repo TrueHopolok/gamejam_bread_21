@@ -4,6 +4,9 @@ const EASY = "res://scenes/house/difficulties/difficulty_easy.tres"
 const MEDIUM = "res://scenes/house/difficulties/difficulty_medium.tres"
 const HARD = "res://scenes/house/difficulties/difficulty_hard.tres"
 const UNFAIR = "res://scenes/house/difficulties/difficulty_unfair.tres"
+const SPAM = "res://scenes/house/difficulties/difficulty_spam.tres"
+const SPIN = "res://scenes/house/difficulties/difficulty_spin.tres"
+
 const HOUSE = "res://scenes/house/house.tscn"
 
 
@@ -69,3 +72,33 @@ func _on_medium_pressed() -> void:
 
 func _on_hint_button_toggled(toggled_on: bool) -> void:
 	Global.hints_enabled = toggled_on
+
+
+func _on_spin_pressed() -> void:
+	Global.difficulty = SPIN
+	var pk := preload(HOUSE)
+	var house := pk.instantiate()
+	house.config = load(SPIN)
+
+	var root := get_tree().root
+	var old_scene := get_tree().current_scene
+
+	root.add_child(house)
+	get_tree().current_scene = house
+
+	old_scene.queue_free()
+
+
+func _on_spam_pressed() -> void:
+	Global.difficulty = SPAM
+	var pk := preload(HOUSE)
+	var house := pk.instantiate()
+	house.config = load(SPAM)
+
+	var root := get_tree().root
+	var old_scene := get_tree().current_scene
+
+	root.add_child(house)
+	get_tree().current_scene = house
+
+	old_scene.queue_free()

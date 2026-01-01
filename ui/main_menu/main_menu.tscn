@@ -30,10 +30,10 @@ text = "Press 'esc' to exit to main menu at any point."
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 200.0
-offset_right = 416.0
-offset_bottom = 240.0
+offset_left = 72.0
+offset_top = 152.0
+offset_right = 328.0
+offset_bottom = 192.0
 theme_override_font_sizes/normal_font_size = 12
 theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
@@ -41,64 +41,125 @@ text = "Santa's [color=red]Warm[/color] on [color=green]Christmas[/color] Day"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Difficulties" type="VBoxContainer" parent="."]
+[node name="Difficulties" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = 20.0
+offset_right = 32.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Base" type="VBoxContainer" parent="Difficulties"]
 layout_mode = 0
-offset_left = 248.0
-offset_top = 232.0
-offset_right = 331.0
-offset_bottom = 350.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 96.0
+offset_bottom = 104.0
 
-[node name="Label" type="Label" parent="Difficulties"]
+[node name="Label" type="Label" parent="Difficulties/Base"]
 layout_mode = 2
-text = "Choose difficulty"
+text = "Base challenges"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Easy" type="Button" parent="Difficulties"]
+[node name="Easy" type="Button" parent="Difficulties/Base"]
 layout_mode = 2
 text = "Easy"
 
-[node name="Medium" type="Button" parent="Difficulties"]
+[node name="Medium" type="Button" parent="Difficulties/Base"]
 layout_mode = 2
 text = "Medium"
 
-[node name="Hard" type="Button" parent="Difficulties"]
+[node name="Hard" type="Button" parent="Difficulties/Base"]
 layout_mode = 2
 text = "Hard"
 
-[node name="Unfair" type="Button" parent="Difficulties"]
+[node name="Extra" type="VBoxContainer" parent="Difficulties"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 8.0
+offset_right = 192.0
+offset_bottom = 104.0
+
+[node name="Label" type="Label" parent="Difficulties/Extra"]
+layout_mode = 2
+text = "Extra challenges"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spin" type="Button" parent="Difficulties/Extra"]
+layout_mode = 2
+text = "Spin"
+
+[node name="Spam" type="Button" parent="Difficulties/Extra"]
+layout_mode = 2
+text = "Spam"
+
+[node name="Unfair" type="Button" parent="Difficulties/Extra"]
 layout_mode = 2
 text = "Unfair"
 
-[node name="AudioSettings" type="VBoxContainer" parent="."]
+[node name="Hints" type="HBoxContainer" parent="Difficulties"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 208.0
-offset_right = 132.0
-offset_bottom = 336.0
+offset_left = 48.0
+offset_top = 112.0
+offset_right = 161.0
+offset_bottom = 154.0
 
-[node name="Label" type="Label" parent="AudioSettings"]
+[node name="Label" type="Label" parent="Difficulties/Hints"]
+layout_mode = 2
+text = "Enable hints?"
+
+[node name="ToggleHints" type="CheckButton" parent="Difficulties/Hints"]
+layout_mode = 2
+button_pressed = true
+
+[node name="AudioSettings" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 200.0
+offset_right = 144.0
+offset_bottom = 352.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioSettings"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 80.0
+offset_bottom = 136.0
+
+[node name="Label" type="Label" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 text = "Audio Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="GeneralLabel" type="Label" parent="AudioSettings"]
+[node name="GeneralLabel" type="Label" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "General"
 horizontal_alignment = 1
 
-[node name="GeneralSlider" type="HSlider" parent="AudioSettings"]
+[node name="GeneralSlider" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 script = ExtResource("3_omy8q")
 bus_name = &"Master"
 
-[node name="MusicLabel" type="Label" parent="AudioSettings"]
+[node name="MusicLabel" type="Label" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Music"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="AudioSettings"]
+[node name="MusicSlider" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -106,13 +167,13 @@ value = 100.0
 script = ExtResource("3_omy8q")
 bus_name = &"Music"
 
-[node name="SFXLabel" type="Label" parent="AudioSettings"]
+[node name="SFXLabel" type="Label" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX"
 horizontal_alignment = 1
 
-[node name="SFXSlider" type="HSlider" parent="AudioSettings"]
+[node name="SFXSlider" type="HSlider" parent="AudioSettings/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
@@ -130,10 +191,13 @@ max_polyphony = 3
 bus = &"Wind"
 parameters/looping = true
 
-[connection signal="pressed" from="Difficulties/Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="Difficulties/Medium" to="." method="_on_medium_pressed"]
-[connection signal="pressed" from="Difficulties/Hard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="Difficulties/Unfair" to="." method="_on_unfair_pressed"]
-[connection signal="value_changed" from="AudioSettings/GeneralSlider" to="AudioSettings/GeneralSlider" method="_on_value_changed"]
-[connection signal="value_changed" from="AudioSettings/MusicSlider" to="AudioSettings/MusicSlider" method="_on_value_changed"]
-[connection signal="value_changed" from="AudioSettings/SFXSlider" to="AudioSettings/SFXSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Difficulties/Base/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Difficulties/Base/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="Difficulties/Base/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="Difficulties/Extra/Spin" to="." method="_on_spin_pressed"]
+[connection signal="pressed" from="Difficulties/Extra/Spam" to="." method="_on_spam_pressed"]
+[connection signal="pressed" from="Difficulties/Extra/Unfair" to="." method="_on_unfair_pressed"]
+[connection signal="toggled" from="Difficulties/Hints/ToggleHints" to="." method="_on_hint_button_toggled"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/GeneralSlider" to="AudioSettings/VBoxContainer/GeneralSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/MusicSlider" to="AudioSettings/VBoxContainer/MusicSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="AudioSettings/VBoxContainer/SFXSlider" to="AudioSettings/VBoxContainer/SFXSlider" method="_on_value_changed"]
