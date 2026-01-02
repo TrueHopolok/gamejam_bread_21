@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwq5hvhmwph6j"]
+
+[ext_resource type="Script" uid="uid://c0ydw4b0evhi" path="res://ui/splash_screen/splash_screen.gd" id="1_dd3pv"]
+[ext_resource type="Texture2D" uid="uid://dci1rktd2t5du" path="res://assets/splash_screen/headphones.png" id="1_xxuqr"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dd3pv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0)
+
+[node name="Headphones" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Headphones"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 200.0
+offset_right = 408.0
+offset_bottom = 224.0
+text = "Headphones are recommended"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Headphones" type="Sprite2D" parent="Headphones"]
+position = Vector2(320, 176)
+texture = ExtResource("1_xxuqr")
