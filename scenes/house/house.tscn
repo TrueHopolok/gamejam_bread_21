@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cx8665g68amn5"]
+[gd_scene load_steps=11 format=3 uid="uid://cx8665g68amn5"]
 
 [ext_resource type="PackedScene" uid="uid://di6ecsgcyv5nr" path="res://scenes/house/left/left_room.tscn" id="1_44bws"]
 [ext_resource type="Script" uid="uid://doku3524rkflj" path="res://scenes/house/game_manager.gd" id="1_wusmn"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://db527036kwnwg" path="res://objects/termometr/termometr.tscn" id="7_cr554"]
 [ext_resource type="PackedScene" uid="uid://dogkf8nhnpjjn" path="res://objects/inventory/inventory.tscn" id="8_yj2u4"]
 [ext_resource type="PackedScene" uid="uid://bs0r1e3smwxqf" path="res://objects/ambient/ambient.tscn" id="9_mfwx6"]
+[ext_resource type="Script" uid="uid://bhxd2gde4ykon" path="res://ui/action_button.gd" id="10_12j21"]
 
 [node name="House" type="Node2D" groups=["GameManager"]]
 script = ExtResource("1_wusmn")
@@ -51,3 +52,22 @@ offset_right = 232.0
 offset_bottom = 328.0
 
 [node name="Ambient" parent="." instance=ExtResource("9_mfwx6")]
+
+[node name="RightSwitch" type="Button" parent="."]
+offset_left = 616.0
+offset_top = 128.0
+offset_right = 640.0
+offset_bottom = 256.0
+text = ">"
+script = ExtResource("10_12j21")
+action_executed = &"move_right"
+
+[node name="LeftSwitch" type="Button" parent="."]
+offset_top = 128.0
+offset_right = 24.0
+offset_bottom = 256.0
+text = "<"
+script = ExtResource("10_12j21")
+
+[connection signal="pressed" from="RightSwitch" to="RightSwitch" method="_on_pressed"]
+[connection signal="pressed" from="LeftSwitch" to="LeftSwitch" method="_on_pressed"]

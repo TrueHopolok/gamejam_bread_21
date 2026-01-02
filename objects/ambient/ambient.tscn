@@ -14,7 +14,7 @@ script = ExtResource("1_ptuno")
 [node name="Barking" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, 192)
 stream = ExtResource("1_y1pfk")
-volume_db = -15.0
+volume_db = -26.0
 bus = &"SFX"
 
 [node name="Floor" type="AudioStreamPlayer2D" parent="."]
